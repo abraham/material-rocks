@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+
+  <title>Material Design Rocks</title>
+  <meta name="description" content="Material Design animation samples from Abraham Williams and Pearl Latteier">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Material Design Rocks" />
+  <meta name="twitter:description" content="Material Design animation samples from Abraham Williams and Pearl Latteier" />
+  <meta name="twitter:image" content="/assets/img/today-192x192.png" />
+  <meta name="twitter:image:alt" content="today" />
+
+  <meta name="og:type" content="website" />
+  <meta name="og:title" content="Material Design Rocks" />
+  <meta name="og:description" content="Material Design animation samples from Abraham Williams and Pearl Latteier" />
+  <meta name="og:image" content="/assets/img/today-192x192.png" />
+  <meta name="og:image:alt" content="today" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FF9800"/>
+  <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="preload" as="style">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload" as="style">
+  <link href="https://unpkg.com/@material/theme@0.3.0/dist/mdc.theme.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/@material/typography@0.3.0/dist/mdc.typography.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/@material/toolbar@0.4.8/dist/mdc.toolbar.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/@material/layout-grid@0.4.3/dist/mdc.layout-grid.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/@material/card@0.2.8/dist/mdc.card.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/@material/button@0.6.0/dist/mdc.button.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      display: block;
+      background-color: #fafafa;
+    }
+
+    header.mdc-toolbar.mdc-toolbar {
+      background-color: #2196F3;
+      color: #212121;
+    }
+
+    content {
+      display: block;
+    }
+
+    .mdc-card {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body class="mdc-typography">
+  <header class="mdc-toolbar mdc-toolbar--fixed">
+    <div class="mdc-toolbar__row">
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+        <span class="mdc-toolbar__title">Material Design Rocks</span>
+      </section>
+    </div>
+  </header>
+
+  <content class="mdc-toolbar-fixed-adjust">
+    <div class="mdc-layout-grid x-mdc-layout-grid--fixed-column-width">
+      <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell">
+          <div class="mdc-card">
+            <section class="mdc-card__primary">
+              <h1 class="mdc-card__title mdc-card__title--large">Grid card to page view animation</h1>
+              <h2 class="mdc-card__subtitle">Good for transitioning to a details page</h2>
+            </section>
+            <section class="mdc-card__supporting-text">
+              Use flexbox to display a grid of clickable cards. When activated use FLIP Animations to transform the card to an expanded view with a background shadow. Leave the other cards in their existing positions while doing it.
+            </section>
+            <section class="mdc-card__actions">
+              <a class="mdc-button mdc-button--compact mdc-card__action" href="https://codepen.io/pearlbea/pen/NaWdXL" target="_blank">Sample</a>
+            </section>
+          </div>
+        </div>
+        <div class="mdc-layout-grid__cell">
+          <div class="mdc-card">
+            <section class="mdc-card__primary">
+              <h1 class="mdc-card__title mdc-card__title--large">Expanding toolbar</h1>
+              <h2 class="mdc-card__subtitle">Good for transitioning to a details page</h2>
+            </section>
+            <section class="mdc-card__supporting-text">
+              Expand a standard height toolbar to details page background. It's good for creating color pop and visually pleasing seams. The color also transitions.
+            </section>
+            <section class="mdc-card__actions">
+              <a class="mdc-button mdc-button--compact mdc-card__action" href="https://codepen.io/abrahamwilliams/pen/QqjjwG" target="_blank">Sample</a>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </content>
+
+  <noscript>
+    JavaScript is required to view Material Design Rocks.
+  </noscript>
+  <script>
+    [
+      'https://fonts.googleapis.com/css?family=Roboto',
+      'https://fonts.googleapis.com/icon?family=Material+Icons',
+    ].map(url => {
+      var link = document.createElement('link');
+      link.href = url;
+      link.rel = 'stylesheet';
+      document.body.appendChild(link);
+    });
+
+    window.addEventListener('load', () => {
+      document.querySelector('body').classList.add('transition');
+
+      [
+        'https://www.google-analytics.com/analytics.js',
+        'https://unpkg.com/autotrack@2.4.1/autotrack.js',
+      ].map(url => {
+        var script = document.createElement('script');
+        script.src = url;
+        script.async = 'async';
+        document.body.appendChild(script);
+      });
+
+      // if(navigator.serviceWorker) {
+      //   navigator.serviceWorker.register('/sw.js')
+      //   .catch(function(err) {
+      //     console.error('Unable to register service worker.', err);
+      //   });
+      // }
+    });
+
+    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments); };ga.l = +new Date;
+    ga('create', 'UA-105094437-1', 'auto');
+
+    ga('require', 'eventTracker');
+    ga('require', 'outboundLinkTracker');
+    ga('require', 'pageVisibilityTracker');
+    ga('require', 'urlChangeTracker');
+
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
