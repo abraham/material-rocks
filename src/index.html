@@ -53,10 +53,15 @@
     }
 
     .mdc-toolbar__row:first-child::after {
-      /*background-image: url("/img/daniel-watson-75027.jpg");*/
-      background-image: url("/img/lukas-blazek-263121.jpg");
+      background-image: url("/img/header-desktop.jpg");
       background-size: cover;
       background-position: center;
+    }
+
+    @media screen and (max-width: 425px) {
+      .mdc-toolbar__row:first-child::after {
+        background-image: url("/img/header-mobile.jpg");
+      }
     }
 
     content {
