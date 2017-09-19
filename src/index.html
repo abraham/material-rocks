@@ -24,6 +24,8 @@
   <!-- <link rel="icon" type="image/png" href="/favicon.png"> -->
   <!-- <link rel="manifest" href="/manifest.json"> -->
 
+  <script src="https://unpkg.com/@material/toolbar@0.4.9/dist/mdc.toolbar.min.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="preload" as="style">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload" as="style">
   <link href="https://unpkg.com/@material/theme@0.3.0/dist/mdc.theme.min.css" rel="stylesheet">
@@ -40,9 +42,20 @@
       background-color: #fafafa;
     }
 
-    header.mdc-toolbar.mdc-toolbar {
-      background-color: #2196F3;
-      color: #212121;
+    header.mdc-toolbar {
+      background-color: #424242;
+      color: #424242;
+    }
+
+    header.mdc-toolbar.mdc-toolbar--flexible-space-minimized {
+      color: #FAFAFA;
+    }
+
+    .mdc-toolbar__row:first-child::after {
+      /*background-image: url("/img/daniel-watson-75027.jpg");*/
+      background-image: url("/img/lukas-blazek-263121.jpg");
+      background-size: cover;
+      background-position: center;
     }
 
     content {
@@ -55,7 +68,7 @@
   </style>
 </head>
 <body class="mdc-typography">
-  <header class="mdc-toolbar mdc-toolbar--fixed">
+  <header class="mdc-toolbar mdc-toolbar--fixed mdc-toolbar--waterfall mdc-toolbar--flexible mdc-toolbar--flexible-default-behavior">
     <div class="mdc-toolbar__row">
       <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
         <span class="mdc-toolbar__title">Material Design Rocks</span>
@@ -172,6 +185,15 @@
     ga('require', 'urlChangeTracker');
 
     ga('send', 'pageview');
+
+    (function () {
+        function init() {
+          var toolbar = mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'));
+          toolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust');
+        }
+
+        init();
+      })();
   </script>
 </body>
 </html>
