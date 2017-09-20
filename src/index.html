@@ -30,6 +30,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload" as="style">
   <link href="https://unpkg.com/@material/theme@0.3.0/dist/mdc.theme.min.css" rel="stylesheet">
   <link href="https://unpkg.com/@material/typography@0.3.0/dist/mdc.typography.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/@material/animation@0.4.0/dist/mdc.animation.min.css" rel="stylesheet">
   <link href="https://unpkg.com/@material/toolbar@0.4.8/dist/mdc.toolbar.min.css" rel="stylesheet">
   <link href="https://unpkg.com/@material/layout-grid@0.4.3/dist/mdc.layout-grid.min.css" rel="stylesheet">
   <link href="https://unpkg.com/@material/card@0.2.8/dist/mdc.card.min.css" rel="stylesheet">
@@ -70,6 +71,15 @@
 
     .mdc-card {
       background-color: #fff;
+      top: 100vh;
+      transition-duration: 300ms;
+      transition-property: top;
+      position: fixed;
+    }
+
+    .mdc-card.transitioned {
+      top: 0;
+      position: relative;
     }
   </style>
 </head>
@@ -86,7 +96,7 @@
     <div class="mdc-layout-grid x-mdc-layout-grid--fixed-column-width">
       <div class="mdc-layout-grid__inner">
         <div class="mdc-layout-grid__cell">
-          <div class="mdc-card">
+          <div class="mdc-card mdc-animation-deceleration-curve">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">Material Design animations</h1>
               <h2 class="mdc-card__subtitle">Samples from "Material Design that Delights"</h2>
@@ -102,7 +112,7 @@
           </div>
         </div>
         <div class="mdc-layout-grid__cell">
-          <div class="mdc-card">
+          <div class="mdc-card mdc-animation-deceleration-curve">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">Grid card to page view animation</h1>
               <h2 class="mdc-card__subtitle">Good for transitioning to a details page</h2>
@@ -116,7 +126,7 @@
           </div>
         </div>
         <div class="mdc-layout-grid__cell">
-          <div class="mdc-card">
+          <div class="mdc-card mdc-animation-deceleration-curve">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">Expanding toolbar</h1>
               <h2 class="mdc-card__subtitle">Good for transitioning to a details page</h2>
@@ -130,7 +140,7 @@
           </div>
         </div>
         <div class="mdc-layout-grid__cell">
-          <div class="mdc-card">
+          <div class="mdc-card mdc-animation-deceleration-curve">
             <section class="mdc-card__primary">
               <h1 class="mdc-card__title mdc-card__title--large">Grid layout with staggered entrance</h1>
               <h2 class="mdc-card__subtitle">Good for transitioning in a grid of cards</h2>
@@ -198,7 +208,16 @@
           toolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust');
         }
 
+        function transition() {
+          let card = document.querySelector('.mdc-card:not(.transitioned)');
+          if (card) {
+            card.classList.add('transitioned');
+            setTimeout(transition, 50);
+          }
+        }
+
         init();
+        transition();
       })();
   </script>
 </body>
